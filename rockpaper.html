@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="week2.html">Basic Webpage</a></li>
+                <li><a href="week3.html">Rock Paper Scissors</a></li>
+                <li><a href="week4.html">Flatland Business Advisor</a></li>
+                <li><a href="week5.html">RSS Reader</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to My Portfolio</h2>
+            <p>This website showcases my web development projects from the past weeks.</p>
+            <p>Explore the projects using the navigation menu.</p>
+        </section>
+    </main>
+</body>
+</html>
+
+<!-- Rock Paper Scissors Game Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .circle { 
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: lightblue;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .result { margin-top: 20px; font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Rock, Paper or Scissors?</h1>
+    <p>
+        <span class="circle" onclick="playGame('rock')">R</span>
+        <span class="circle" onclick="playGame('paper')">P</span>
+        <span class="circle" onclick="playGame('scissors')">S</span>
+    </p>
+    <p class="result" id="result"></p>
+
+    <script>
+        function playGame(playerChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let result = '';
+            
+            if (playerChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                result = 'You win!';
+            } else {
+                result = 'You lose!';
+            }
+            
+            document.getElementById('result').textContent = `Computer chose ${computerChoice}. ${result}`;
+        }
+    </script>
+</body>
+</html>
+
