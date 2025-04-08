@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
+    <title>Week 3 - Rock, Paper, Scissors</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
+        body { text-align: center; font-family: Arial, sans-serif; margin: 0; padding: 2rem; background-color: #f0f8ff; }
+        h1 { color: #004080; }
+
         .circle { 
             display: inline-block;
             width: 60px;
@@ -52,27 +54,62 @@
     </p>
     <p class="result" id="result"></p>
 
+    <div class="scoreboard" id="scoreboard">
+        <div>Wins: <span id="wins">0</span></div>
+        <div>Losses: <span id="losses">0</span></div>
+        <div>Ties: <span id="ties">0</span></div>
+    </div>
+
+    <button id="resetBtn" onclick="resetScores()">Reset Scores</button>
+
+    <footer>
+        <p>&copy; 2025 Veeneshwaren Perumal - Week 3 Activity</p>
+    </footer>
+
     <script>
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
         function playGame(playerChoice) {
             const choices = ['rock', 'paper', 'scissors'];
             const computerChoice = choices[Math.floor(Math.random() * choices.length)];
             let result = '';
-            
+
             if (playerChoice === computerChoice) {
                 result = "It's a tie!";
+                ties++;
             } else if (
                 (playerChoice === 'rock' && computerChoice === 'scissors') ||
                 (playerChoice === 'paper' && computerChoice === 'rock') ||
                 (playerChoice === 'scissors' && computerChoice === 'paper')
             ) {
                 result = 'You win!';
+                wins++;
             } else {
                 result = 'You lose!';
+                losses++;
             }
-            
+
             document.getElementById('result').textContent = `Computer chose ${computerChoice}. ${result}`;
+            updateScoreboard();
+        }
+
+        function updateScoreboard() {
+            document.getElementById('wins').textContent = wins;
+            document.getElementById('losses').textContent = losses;
+            document.getElementById('ties').textContent = ties;
+        }
+
+        function resetScores() {
+            wins = 0;
+            losses = 0;
+            ties = 0;
+            updateScoreboard();
+            document.getElementById('result').textContent = '';
         }
     </script>
 </body>
 </html>
+
 
