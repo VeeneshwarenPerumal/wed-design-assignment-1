@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5: Accessibility Activities</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+    h2 { color: #2a4d69; }
+    .section { margin-bottom: 30px; }
+    code { background-color: #f4f4f4; padding: 4px; display: block; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+  <h1>Week 5: Accessibility Activities</h1>
+
+  <div class="section">
+    <h2>Activity 1: Spot the Barriers</h2>
+    <ul>
+      <li><strong>Issue:</strong> Low contrast between light grey text and white background<br>
+        <strong>Who is affected:</strong> Users with visual impairments<br>
+        <strong>Fix:</strong> Use dark text on light background with at least 4.5:1 contrast ratio
+      </li>
+      <li><strong>Issue:</strong> Error messages shown only in red<br>
+        <strong>Who is affected:</strong> Colour-blind users<br>
+        <strong>Fix:</strong> Add text labels/icons and use ARIA live regions for screen readers
+      </li>
+      <li><strong>Issue:</strong> Image CAPTCHA without audio<br>
+        <strong>Who is affected:</strong> Screen reader users<br>
+        <strong>Fix:</strong> Provide audio CAPTCHA or text-based alternatives
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Activity 2: Code Correction</h2>
+    <h3>Improved HTML</h3>
+    <code>
+      &lt;div&gt;
+        &lt;button onclick="navigate()"&gt;Click here to submit&lt;/button&gt;<br>
+        &lt;img src="diagram.jpg" alt="Process diagram explaining submission steps"&gt;<br>
+        &lt;div style="background-color: #FFDD00; color: #000"&gt;<br>
+          &nbsp; &lt;p&gt;&lt;strong&gt;Important warning message&lt;/strong&gt;&lt;/p&gt;<br>
+        &lt;/div&gt;<br>
+      &lt;/div&gt;
+    </code>
+    <p><strong>Explanation:</strong> Improved contrast, replaced div with button for accessibility, and added alt text to the image.</p>
+  </div>
+
+  <div class="section">
+    <h2>Activity 3: Mobile App Analysis</h2>
+    <ul>
+      <li><strong>Login Page Issue:</strong> Tiny buttons, no keyboard focus, Face ID only<br>
+        <strong>Fix:</strong> Increase button size, add focus indicators, provide password option</li>
+      <li><strong>Account Overview Issue:</strong> Only pie chart, red/green used<br>
+        <strong>Fix:</strong> Provide text/table summary, use textures/icons for categories</li>
+      <li><strong>Money Transfer Issue:</strong> Timeout, disappearing errors, swipe-only<br>
+        <strong>Fix:</strong> Extend timeout, persist errors, provide confirm button</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Extension Challenge: Accessibility Guidelines</h2>
+    <ol>
+      <li>Use high-contrast colours for text readability</li>
+      <li>Implement semantic HTML and ARIA roles</li>
+      <li>Ensure support for keyboard and assistive tech navigation</li>
+      <li>Avoid motion, auto-scrolling, and flashing content</li>
+      <li>Include captions/transcripts for all media</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Reflection</h2>
+    <p>Accessibility is neglected by many of the digital tools that I utilise.  I've come across stuff that is difficult to read and lacking alt text.  During the design process, I would recommend including keyboard testing and contrast tests in order to make the design more inclusive..</p>
+  </div>
+
+</body>
+</html>
