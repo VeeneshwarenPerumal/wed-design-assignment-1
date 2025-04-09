@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4 - Multi-Feed RSS Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>Multi-Feed RSS Dashboard</h1>
+
+  <!-- Feed Selector -->
+  <label for="feed-selector">Choose a feed:</label>
+  <select id="feed-selector">
+    <option value="https://hacks.mozilla.org/rss">Mozilla Hacks</option>
+    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC World News</option>
+  </select>
+
+  <!-- Feed Content Container -->
+  <div id="content"></div>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
