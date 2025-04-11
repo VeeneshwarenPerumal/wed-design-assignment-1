@@ -2,7 +2,12 @@ function loadFeed(feedUrl) {
     fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl))
       .then(response => response.json())
       .then(data => {
-        displayArticles(data.items);
+        const articles = Array.from(data.items).map(item => ({
+          title: item.title,
+          description: item.description
+        }));
+  
+        displayArticles(articles);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -35,4 +40,3 @@ function loadFeed(feedUrl) {
   
   // Load the default feed on page load
   loadFeed(document.getElementById('feed-selector').value);
-  
