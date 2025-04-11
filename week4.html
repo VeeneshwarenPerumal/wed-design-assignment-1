@@ -1,26 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 4 - Multi-Feed RSS Dashboard</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Week 4 | Multi-Feed RSS Dashboard</title>
+  <link rel="stylesheet" href="css/week4.css" />
 </head>
 <body>
-  <h1>Multi-Feed RSS Dashboard</h1>
+  <header>
+    <h1>Multi-Feed RSS Dashboard</h1>
+  </header>
 
-  <!-- Feed Selector -->
-  <label for="feed-selector">Choose a feed:</label>
-  <select id="feed-selector">
-    <option value="https://hacks.mozilla.org/rss">Mozilla Hacks</option>
-    <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC World News</option>
-  </select>
+  <main>
+    <!-- Feed Selector -->
+    <label for="feed-selector">Choose a feed:</label>
+    <select id="feed-selector">
+      <option value="https://hacks.mozilla.org/rss">Mozilla Hacks</option>
+      <option value="http://feeds.bbci.co.uk/news/world/rss.xml">BBC World News</option>
+    </select>
 
-  <!-- Feed Content Container -->
-  <div id="content"></div>
+    <!-- RSS Feed Content -->
+    <div id="content"></div>
+  </main>
 
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+  <footer>
+    <p>© 2025 Veeneshwaren Perumal. All rights reserved.</p>
+  </footer>
+
+  <script src="js/week4.js"></script>
 </body>
 </html>
+
