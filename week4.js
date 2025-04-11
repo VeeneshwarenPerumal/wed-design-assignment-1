@@ -51,30 +51,6 @@ function loadFeed(feedUrl) {
 // Load default feed on first load
 loadFeed(select.value);
 
-<style>
-    select {
-        padding: 10px;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    li {
-        margin-bottom: 15px;
-    }
-
-    a {
-        text-decoration: none;
-        color: #0044cc;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+// Remove the <style> block from the JavaScript file. Move it to a CSS file or the HTML file.
 
 
