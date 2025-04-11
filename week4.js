@@ -1,42 +1,56 @@
-function loadFeed(feedUrl) {
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl))
-      .then(response => response.json())
-      .then(data => {
-        const articles = Array.from(data.items).map(item => ({
-          title: item.title,
-          description: item.description
-        }));
-  
-        displayArticles(articles);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('content').innerHTML = '<p>Unable to load the feed. Please try again later.</p>';
-      });
-  }
-  
-  function displayArticles(articles) {
-    const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = '';
-  
-    if (!articles || articles.length === 0) {
-      contentDiv.innerHTML = '<p>No articles found.</p>';
-      return;
+<script>
+    const feeds = {
+        "Mozilla Hacks": "https://hacks.mozilla.org/feed/",
+        "CSS Tricks": "https://css-tricks.com/feed/",
+        "Smashing Magazine": "https://www.smashingmagazine.com/feed/"
+    };
+
+    const select = document.createElement("select");
+    const feedContainer = document.createElement("div");
+
+    document.body.appendChild(select);
+    document.body.appendChild(feedContainer);
+
+    // Add options to dropdown
+    for (const name in feeds) {
+        const option = document.createElement("option");
+        option.value = feeds[name];
+        option.textContent = name;
+        select.appendChild(option);
     }
-  
-    articles.forEach(article => {
-      const articleEl = document.createElement('article');
-      articleEl.innerHTML = `
-        <h3>${article.title}</h3>
-        <p>${article.description}</p>
-      `;
-      contentDiv.appendChild(articleEl);
+
+    select.addEventListener("change", () => {
+        loadFeed(select.value);
     });
-  }
-  
-  document.getElementById('feed-selector').addEventListener('change', function () {
-    loadFeed(this.value);
-  });
-  
-  // Load the default feed on page load
-  loadFeed(document.getElementById('feed-selector').value);
+
+    function loadFeed(feedUrl) {
+        const apiURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                feedContainer.innerHTML = ""; // Clear previous content
+
+                if (data.items && data.items.length > 0) {
+                    const list = document.createElement("ul");
+                    data.items.slice(0, 5).forEach(item => {
+                        const listItem = document.createElement("li");
+                        listItem.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a><br><small>${item.pubDate}</small>`;
+                        list.appendChild(listItem);
+                    });
+                    feedContainer.appendChild(list);
+                } else {
+                    feedContainer.textContent = "No feed items found.";
+                }
+            })
+            .catch(err => {
+                console.error("Feed loading error:", err);
+                feedContainer.textContent = "Failed to load feed. Please try again.";
+            });
+    }
+
+    // Load default feed on first load
+    loadFeed(select.value);
+</script>
+
+
