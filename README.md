@@ -28,7 +28,7 @@ This project aims to use HTML, CSS, and JavaScript to create a responsive, easil
 
  Live Website
 
-🌍 [Visit the Portfolio Website](https://veeneshwarenperumal.github.io/wed-design-assignment-1/)  
+🌍 [Visit the Portfolio Website](https://cerulean-mermaid-89f1ec.netlify.app/))  
 📂 [GitHub Repository](https://github.com/VeeneshwarenPerumal/wed-design-assignment-1)
 
 ---
