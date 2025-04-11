@@ -1,3 +1,7 @@
+<!-- Trigger button -->
+<button onclick="openModal()">Open Login Modal</button>
+
+<!-- Modal -->
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="loginModal" style="display: none;">
   <div class="modal-content">
     <div class="modal-header">
@@ -27,9 +31,10 @@
     modal.style.display = 'block';
     modal.setAttribute('aria-hidden', 'false');
     const focusables = modal.querySelectorAll(focusableElements);
-    firstFocus = focusables[0];
-    firstFocus.focus();
-
+    if (focusables.length > 0) {
+      firstFocus = focusables[0];
+      firstFocus.focus();
+    }
     document.addEventListener('keydown', trapFocus);
   }
 
@@ -41,6 +46,7 @@
 
   function trapFocus(e) {
     const focusables = modal.querySelectorAll(focusableElements);
+    if (focusables.length === 0) return;
     const first = focusables[0];
     const last = focusables[focusables.length - 1];
     if (e.key === 'Tab') {
@@ -62,62 +68,5 @@
   }
 </script>
 
-<style>
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  width: 300px;
-}
-
-.modal-content {
-  padding: 20px;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.modal-title {
-  margin: 0;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.modal-body {
-  margin-top: 20px;
-}
-
-.form-field {
-  margin-bottom: 15px;
-}
-
-.login-button {
-  width: 100%;
-  padding: 10px;
-  background: #004466;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-button:hover {
-  background: #00334d;
-}
-</style>
 
 
